@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvolutionaryAlgorithm", "EvolutionaryAlgorithm.csproj", "{B83B412B-A3E4-4FC8-9189-C20219C2A417}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DifferentialEvolution", "DifferentialEvolution.csproj", "{B83B412B-A3E4-4FC8-9189-C20219C2A417}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

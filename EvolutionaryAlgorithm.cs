@@ -15,6 +15,7 @@
  **************************************************************************/
 
 using System;
+using System.Collections.Generic;
 
 namespace EvolutionaryAlgorithm
 {
@@ -23,9 +24,11 @@ namespace EvolutionaryAlgorithm
     /// </summary>
     public class EvolutionaryAlgorithm
     {
+        private static Random _rand = new Random();
         /// <summary>
         /// Metoda de optimizare care gaseste solutia problemei
         /// </summary>
+        /// 
         public Chromosome Solve(IOptimizationProblem p, int populationSize, int maxGenerations, double crossoverRate, double mutationRate)
         {
             //throw new Exception("Aceasta metoda trebuie completata");
@@ -40,21 +43,34 @@ namespace EvolutionaryAlgorithm
             for (int gen = 0; gen < maxGenerations; gen++)
             {
                 Chromosome[] newPopulation = new Chromosome[populationSize];
-                newPopulation[0] = Selection.GetBest(population); // elitism
-
-                for (int i = 1; i < populationSize; i++)
+                //newPopulation[0] = Selection.GetBest(population); // elitism
+                List<Chromosome> indivizi = new List<Chromosome>();
+                for (int i = 0; i < populationSize; i++)
                 {
-                    // selectare 2 parinti: Selection.Tournament
-                    Chromosome c1 = Selection.Tournament(population);
-                    Chromosome c2 = Selection.Tournament(population);
-                    // generarea unui copil prin aplicare crossover: Crossover.Arithmetic
-                    Chromosome child = Crossover.Arithmetic(c1, c2, crossoverRate);
-                    // aplicare mutatie asupra copilului: Mutation.Reset
-                    Mutation.Reset(child, mutationRate);
-                    // calculare fitness pentru copil: ComputeFitness din problema p
-                    p.ComputeFitness(child);
-                    // introducere copil in newPopulation
-                    newPopulation[i] = child;
+                    indivizi.Add(population[i]);
+                    for (int j = 0; j<3; ++j)
+                    {
+                        do
+                        {
+                            Chromosome c = Selection.Tournament(population);
+                            if (indivizi.Contains(c) == false)
+                            {
+                                indivizi.Add(c);
+                                break;
+                            }
+                        } while (true);
+                    }
+
+                    Chromosome individ_potential = Crossover.Arithmetic(population[i], indivizi, crossoverRate, mutationRate);
+
+                    indivizi.Clear();
+
+                    p.ComputeFitness(individ_potential);
+
+                    if (individ_potential.Fitness >= population[i].Fitness)
+                        newPopulation[i] = individ_potential;
+                    else
+                        newPopulation[i] = population[i];
                 }
 
                 for (int i = 0; i < populationSize; i++)

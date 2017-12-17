@@ -29,11 +29,11 @@ namespace EvolutionaryAlgorithm
 
 	        EvolutionaryAlgorithm ea = new EvolutionaryAlgorithm();
 
-            Chromosome solution = ea.Solve(new Equation(), 1000, 1000, 0.9, 0.95); // de completat parametrii algoritmului
+            Chromosome solution = ea.Solve(new Equation(), 1000, 1000, 0.9, 0.80); // de completat parametrii algoritmului
             // se foloseste -solution.Fitness pentru ca algoritmul evolutiv maximizeaza, iar aici avem o problema de minimizare
             Console.WriteLine("{0:F6} -> {1:F6}", solution.Genes[0], -solution.Fitness);
 
-            solution = ea.Solve(new Fence(), 1000, 1000, 0.9, 0.95); // de completat parametrii algoritmului
+            solution = ea.Solve(new Fence(), 1000, 1000, 0.9, 0.80); // de completat parametrii algoritmului
             Console.WriteLine("{0:F2} {1:F2} -> {2:F4}", solution.Genes[0], solution.Genes[1], solution.Fitness);
         }
     }

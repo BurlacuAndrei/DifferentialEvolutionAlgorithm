@@ -15,6 +15,7 @@
  **************************************************************************/
 
 using System;
+using System.Collections.Generic;
 
 namespace EvolutionaryAlgorithm
 {
@@ -25,36 +26,26 @@ namespace EvolutionaryAlgorithm
     {
         private static Random _rand = new Random();
 
-        public static Chromosome Arithmetic(Chromosome mother, Chromosome father, double rate)
+        public static Chromosome Arithmetic(Chromosome p, List<Chromosome> indivizi,  double crossoverRate, double mutationRate)
         {
-            //throw new Exception("Aceasta metoda trebuie implementata");
-            if (rate < _rand.NextDouble())
+            double[] maxValues = new double[p.NoGenes];
+            double[] minValues = new double[p.NoGenes];
+            int division_point = _rand.Next(0, p.NoGenes - 1);
+            for (int gene = 0; gene < p.NoGenes; ++gene)
             {
-                if (_rand.NextDouble() < 0.5)
-                    return mother;
-                else
-                    return father;
-            }
-
-            int division_point = _rand.Next(1, mother.MaxValues.Length);
-            double[] minVal = new double[mother.MinValues.Length];
-            double[] maxVal = new double[mother.MaxValues.Length];
-
-            for (int i = 0; i < minVal.Length; ++i)
-            {
-                if (i <= division_point)
+                if (gene == division_point || _rand.NextDouble() < crossoverRate)
                 {
-                    minVal[i] = mother.MinValues[i];
-                    maxVal[i] = mother.MaxValues[i];
+                    maxValues[gene] = indivizi[3].MaxValues[gene] + mutationRate * (indivizi[1].MaxValues[gene] - indivizi[2].MaxValues[gene]);
+                    minValues[gene] = indivizi[3].MinValues[gene] + mutationRate * (indivizi[1].MinValues[gene] - indivizi[2].MinValues[gene]);
                 }
                 else
                 {
-                    minVal[i] = father.MinValues[i];
-                    maxVal[i] = father.MaxValues[i];
+                    maxValues[gene] = indivizi[0].MaxValues[gene];
+                    minValues[gene] = indivizi[0].MinValues[gene];
                 }
-                    
             }
-            return new Chromosome(minVal.Length, minVal, maxVal);
+
+            return new Chromosome(minValues.Length, minValues, maxValues);
         }
     }
 }
