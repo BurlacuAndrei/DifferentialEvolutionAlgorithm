@@ -22,7 +22,7 @@ namespace EvolutionaryAlgorithm
     /// <summary>
     /// Clasa care implementeaza algoritmul evolutiv pentru optimizare
     /// </summary>
-    public class EvolutionaryAlgorithm
+    public class DifferentialEvolutionaryAlgorithm
     {
         private static Random _rand = new Random();
         /// <summary>

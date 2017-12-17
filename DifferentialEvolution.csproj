@@ -44,7 +44,7 @@
     <Compile Include="Chromosome.cs" />
     <Compile Include="Crossover.cs" />
     <Compile Include="Equation.cs" />
-    <Compile Include="EvolutionaryAlgorithm.cs" />
+    <Compile Include="DifferentialEvolutionaryAlgorithm.cs" />
     <Compile Include="Fence.cs" />
     <Compile Include="IProblem.cs" />
     <Compile Include="Program.cs" />

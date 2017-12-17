@@ -27,7 +27,7 @@ namespace EvolutionaryAlgorithm
         {
             //throw new Exception("Aceasta metoda trebuie completata");
 
-	        EvolutionaryAlgorithm ea = new EvolutionaryAlgorithm();
+	        DifferentialEvolutionaryAlgorithm ea = new DifferentialEvolutionaryAlgorithm();
 
             Chromosome solution = ea.Solve(new Equation(), 1000, 1000, 0.9, 0.80); // de completat parametrii algoritmului
             // se foloseste -solution.Fitness pentru ca algoritmul evolutiv maximizeaza, iar aici avem o problema de minimizare

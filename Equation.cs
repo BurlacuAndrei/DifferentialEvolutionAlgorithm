@@ -41,9 +41,7 @@ namespace EvolutionaryAlgorithm
                 if (temp > 0)
                     temp *= -1;
                     if (c.Fitness < temp)
-              
                         c.Fitness = temp;
-                
             }
         }
     }
