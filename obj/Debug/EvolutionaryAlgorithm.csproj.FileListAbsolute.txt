@@ -1,0 +1,6 @@
+E:\Fac\Anul IV\IA_Burlacu\Interfata\bin\Debug\EvolutionaryAlgorithm.exe.config
+E:\Fac\Anul IV\IA_Burlacu\Interfata\bin\Debug\EvolutionaryAlgorithm.exe
+E:\Fac\Anul IV\IA_Burlacu\Interfata\bin\Debug\EvolutionaryAlgorithm.pdb
+E:\Fac\Anul IV\IA_Burlacu\Interfata\obj\Debug\EvolutionaryAlgorithm.csprojResolveAssemblyReference.cache
+E:\Fac\Anul IV\IA_Burlacu\Interfata\obj\Debug\EvolutionaryAlgorithm.exe
+E:\Fac\Anul IV\IA_Burlacu\Interfata\obj\Debug\EvolutionaryAlgorithm.pdb
